@@ -5,14 +5,12 @@ const connectDB = async () => {
         await mongoose.connect(process.env.MONGO_URI_BLOG, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true,
         });
         console.log('Blog db connected');
 
         await mongoose.connect(process.env.MONGO_URI_PROJECT, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true,
         })
         console.log('Project db connected');
     } catch (e) {
