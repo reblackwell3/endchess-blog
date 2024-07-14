@@ -19,6 +19,8 @@ const projectSchema  = new mongoose.Schema({
     }
 });
 
+const conn = mongoose.createConnection('mongodb://localhost:27017/projectdb');
+conn.on('connected', () => console.log('Project db connected'));
 const Project = mongoose.model('Project', projectSchema);
 
 module.exports = Project;
