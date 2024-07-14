@@ -15,8 +15,13 @@ const postSchema = new mongoose.Schema({
     },
 });
 
-const conn = mongoose.createConnection('mongodb://localhost:27017/blogdb');
-conn.on('connected', () => console.log('Blog db connected'));
-const Post = conn.model('Post', postSchema);
+let Post;
 
-module.exports = Post;
+const setConnection = (connection) => {
+    Post = connection.model('Post', postSchema);
+};
+
+module.exports = {
+    setConnection,
+    getModel: () => Post,
+};
