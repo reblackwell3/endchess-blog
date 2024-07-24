@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 const Post = ({ title, content }) => {
   return (
@@ -9,14 +10,30 @@ const Post = ({ title, content }) => {
   );  
 };
 
-const AllPosts = (posts) => {
-  return (
+const fetchPosts = async (setPosts) => {
+    try {
+        const response = await axios.get('http://localhost:5000/api/posts');
+        console.log('Posts fetched:', response.data);
+        setPosts(response.data);
+    } catch (error) {
+        console.error('Error fetching pots:', error);
+    }
+};
+
+const AllPosts = () => {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetchPosts(setPosts);
+    }, []);
+
+    return (
       <div className="posts">
           {posts.map((post) => (
               <Post key={post.id} title={post.title} content={post.content} />
           ))}
       </div>
-  );
+    );
 };
 
 export {AllPosts as default, Post};
