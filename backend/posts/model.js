@@ -15,13 +15,6 @@ const postSchema = new mongoose.Schema({
     },
 });
 
-let Post;
+const Post = mongoose.model('Post', postSchema);
 
-const setConnection = (connection) => {
-    Post = connection.model('Post', postSchema);
-};
-
-module.exports = {
-    setConnection,
-    getModel: () => Post,
-};
+module.exports = Post;

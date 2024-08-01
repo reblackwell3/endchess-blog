@@ -51,7 +51,7 @@ const Post = ({ title, content }) => {
 
 const fetchPosts = async (setPosts) => {
   try {
-    const response = await axios.get('http://localhost:5000/api/posts');
+    const response = await axios.get('http://localhost:5555/api/posts');
     console.log('Posts fetched:', response.data);
     setPosts(response.data);
   } catch (error) {
