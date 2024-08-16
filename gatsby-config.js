@@ -9,15 +9,15 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Endchess Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Robert Blackwell`,
+      summary: `who codes endchess by day and blogs endchess by night.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A blog showcasing how endchess was coded and chess concepts.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `blackfromchina`,
     },
   },
   plugins: [
